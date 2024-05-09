@@ -43,5 +43,8 @@ public class MyHashTable <K, V> {
     public K getKey(V value){
 
     }
+    private K setkey(){
+
+    }
 
 }
