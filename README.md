@@ -2,7 +2,9 @@
 <h1 align="center">Hi 👋, I'm Alima</h1>
 
 This project contains the following five classes:
-<h3 align ="left"> 🚀 MyHashTable: </h3> This class represents the hash table data structure. 
+<h3 align ="left"> 🚀 MyHashTable: </h3> 
+
+This class represents the hash table data structure. 
 
 
 Fields: 
