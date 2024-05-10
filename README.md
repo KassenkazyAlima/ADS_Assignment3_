@@ -1,10 +1,9 @@
-🌟 **Highlights**
-This project contains the following five classes:
-🚀 MyHashTable: This class represents the hash table data structure
-🚀 MyTestingClass: 
 
 <h1 align="center">Hi 👋, I'm Alima</h1>
 <h3 align="left">🌟 **Highlights**</h3>
+This project contains the following five classes:
+🚀 MyHashTable: This class represents the hash table data structure
+🚀 MyTestingClass: 
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
