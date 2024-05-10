@@ -3,6 +3,7 @@
 
 This project contains the following five classes:
 <h3 align ="left"> 🚀 MyHashTable: </h3> This class represents the hash table data structure. 
+
 It include methods for operations like : put, get, remove, contains, getKey.
 <h3 align= "left"> 🚀 MyTestingClass: </h3> This class
 <h3 align ="left"> 🚀 BST (Binary Search Tree): </h3> This class represents the hash table data structure 
