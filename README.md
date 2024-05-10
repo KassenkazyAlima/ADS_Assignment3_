@@ -5,11 +5,11 @@ This project contains the following five classes:
 <h3 align ="left"> 🚀 MyHashTable: </h3> This class represents the hash table data structure. 
 
 Fields: 
--chainarray 
-- M
-- size 
+- chainArray - represents the buckets or chains in the hash table(array of hash nodes)
+- M - represents the default number of chains or the capacity of the hash table.
+- size - represents the number of key-value pairs stored in the hash table.
 
-It include methods for operations like : put, get, remove, contains, getKey.
+It includes methods for operations like put, get, remove, contains, and getKey.
 <h3 align= "left"> 🚀 MyTestingClass: </h3> This class
 <h3 align ="left"> 🚀 BST (Binary Search Tree): </h3> This class represents the hash table data structure 
 <h3 align ="left"> 🚀 Student: </h3>  This class represents the hash table data structure
