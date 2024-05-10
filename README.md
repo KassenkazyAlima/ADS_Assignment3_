@@ -1,11 +1,13 @@
 
 <h1 align="center">Hi 👋, I'm Alima</h1>
-<h3 align="left">🌟 **Highlights**</h3>
+<h3 align="left">🌟 Highlights</h3>
 This project contains the following five classes:
-🚀 MyHashTable: This class represents the hash table data structure
-🚀 MyTestingClass: 
 
-<h3 align="left">Connect with me:</h3>
+🚀 MyHashTable: This class represents the hash table data structure
+
+
+
+<h3 align="left">🚀 MyTestingClass: </h3>
 <p align="left">
 </p>
 
