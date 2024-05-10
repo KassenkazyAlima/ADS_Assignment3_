@@ -3,10 +3,10 @@
 <h3 align="left">🌟 Highlights</h3>
 This project contains the following five classes:
 <h3 align ="left"> 🚀 MyHashTable: </h3> This class represents the hash table data structure
-<h3 align= "left"> 🚀 MyTestingClass: </h3>
-<h3 align ="left"> 🚀 BST (Binary Search Tree): This class represents the hash table data structure </h3>
-<h3 align ="left"> 🚀 Student: This class represents the hash table data structure </h3>
-<h3 align ="left"> 🚀 TreeNode: This class represents the hash table data structure </h3>
+<h3 align= "left"> 🚀 MyTestingClass: </h3> This class
+<h3 align ="left"> 🚀 BST (Binary Search Tree): </h3> This class represents the hash table data structure 
+<h3 align ="left"> 🚀 Student: </h3>  This class represents the hash table data structure
+<h3 align ="left"> 🚀 TreeNode: </h3>  This class represents the hash table data structure 
 <p align="left">
 </p>
 
