@@ -9,7 +9,7 @@ This assignment covers two main tasks: implementing a hash table and a binary se
 This project contains the following five classes:
 <h3 align ="left"> 🚀 MyHashTable: </h3> 
 
-This class represents the hash table data structure. 
+This class is the generic class that uses chaining to resolve collisions. What is more, it also represents the hash table data structure. 
 
 
 Fields: 
@@ -29,7 +29,9 @@ Methods:
 - get(K key) - retrieves the value associated with the key
 - remove(K key) - removes the value associated with the specific key
 - contains(V value) - check whether the hash table contains the value
-- getKey(V value) - returns the key of specific value
+- getKey(V value) - returns the key of a specific value
+
+And we have a **HashNode** class to store key-value pairs.
 
 
 <h3 align= "left"> 🚀 MyTestingClass: </h3> This class
