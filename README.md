@@ -2,7 +2,7 @@
 <h1 align="center">Hi 👋, I'm Alima</h1>
 
 
-This assignment covers two main tasks: implementing a hash table and a binary search tree in Java.
+This assignment covers two main tasks: implementing a hash table and a binary search tree.
 
 
 
