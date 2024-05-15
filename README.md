@@ -36,6 +36,13 @@ Methods:
 
 
 <h3 align= "left"> 🚀 MyTestingClass: </h3> This class
+
+This class is for testing key K. 
+For HashNode() method,
+Random 10000 elements will be tested.
+
+
+
 <h3 align ="left"> 🚀 BST (Binary Search Tree): </h3> This class represents the hash table data structure 
 <h3 align ="left"> 🚀 Student: </h3>  This class represents the hash table data structure
 <h3 align ="left"> 🚀 TreeNode: </h3>  This class represents the hash table data structure 
