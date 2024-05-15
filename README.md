@@ -9,11 +9,11 @@ This assignment covers two main tasks: implementing a hash table and a binary se
 This project contains the following five classes:
 <h3 align ="left"> 🚀 MyHashTable: </h3> 
 
-This class is the generic class that uses chaining to resolve collisions. What is more, it also represents the hash table data structure. 
+This class is the generic class that uses chaining to resolve collisions. What is more, it also represents the hash table data structure. We have a **HashNode** class to store key-value pairs and a reference to the next node for collisions.
 
 
 Fields: 
-- chainArray - represents the buckets or chains in the hash table(array of hash nodes)
+- chainArray - represents the buckets or the chains in the hash table. Simply, it is an array of hash nodes.
 - M - represents the default number of chains or the capacity of the hash table.
 - size - represents the number of key-value pairs stored in the hash table.
 
@@ -22,16 +22,17 @@ Constructors:
 - MyHashtable(int M) initializes the hash table with a specific capacity.
 
 Methods:
+
 - size() - return the number of key-value pairs
 - isEmpty() - checks whether the hash table is empty or not
+
+  
 - hash(K key) - calculates the hash code for a specific key
 - put(K key, V value) - inserts value and key
-- get(K key) - retrieves the value associated with the key
-- remove(K key) - removes the value associated with the specific key
+- get(K key) - retrieves the value of a specific key
+- remove(K key) - removes the value of a specific key
 - contains(V value) - check whether the hash table contains the value
 - getKey(V value) - returns the key of a specific value
-
-And we have a **HashNode** class to store key-value pairs.
 
 
 <h3 align= "left"> 🚀 MyTestingClass: </h3> This class
