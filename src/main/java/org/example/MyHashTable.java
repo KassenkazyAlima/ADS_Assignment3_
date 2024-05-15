@@ -118,7 +118,13 @@ public class MyHashTable <K, V> {
     public void printDistribution() {
         for (int i = 0; i < chainArray.length; i++) {
             int count = 0;
-            for (HashNode<Group, Student> node = chainArray[i]; node != null; node = node.next) {
+            HashNode<K, V> node = chainArray[i];
+            while (node != null) {
+                if (node.key instanceof Group && node.value instanceof Student) {
+                    Group group = (Group) node.key;
+                    Student student = (Student) node.value;
+                }
+                node = node.next;
                 count++;
             }
             System.out.println("Bucket " + i + " has " + count + " elements.");
