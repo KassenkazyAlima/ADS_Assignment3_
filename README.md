@@ -37,11 +37,7 @@ Methods:
 
 <h3 align= "left"> 🚀 MyTestingClass: </h3> 
 
-This class is for testing key K. 
 
-For HashNode() method,
-
-Random 10000 elements will be tested.
 
 
 
