@@ -36,7 +36,7 @@ public class MyHashTable <K, V> {
     }
 
     public int getBucketsCount() {
-        return chainArray.length;  // Returns the number of buckets
+        return chainArray.length;  //this method eturns the number of buckets
     }
     public int getBucketSize(int bucketIndex) {
         if (bucketIndex < 0 || bucketIndex >= chainArray.length) {

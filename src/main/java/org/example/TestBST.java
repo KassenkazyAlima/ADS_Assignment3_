@@ -10,5 +10,6 @@ public class TestBST {
         for (Entry<Integer, String> elem : bst.iterator()) {
             System.out.println("Key is " + elem.getKey() + " and Value is " + elem.getValue());
         }
+
     }
 }

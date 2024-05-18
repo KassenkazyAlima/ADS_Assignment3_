@@ -21,7 +21,6 @@ public class Group {
         Group group = (Group) obj;
         return groupId != null ? groupId.equals(group.groupId) : group.groupId == null;
     }
-
     @Override
     public int hashCode() {
         return groupId != null ? groupId.hashCode() : 0;
