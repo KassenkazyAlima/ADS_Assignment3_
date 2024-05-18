@@ -1,5 +1,5 @@
 
-<h1 align="center">Hi 👋, I'm Alima</h1>
+<h1 align="center">Hi 👋 Nursultan Khaimuldin< ! Welcome /h1>
 
 
 This assignment covers two main tasks: implementing a hash table and a binary search tree.
@@ -34,15 +34,12 @@ Methods:
 - contains(V value) - check whether the hash table contains the value
 - getKey(V value) - returns the key of a specific value
 
-
-<h3 align= "left"> 🚀 MyTestingClass: </h3> 
-
-
-
-
+<h3 align ="left"> 🚀 MyHashTableTest: </h3> 
+<h3 align ="left"> 🚀 Student: </h3>  This class represents the hash table data structure
+<h3 align ="left"> 🚀 Group: </h3> 
 
 <h3 align ="left"> 🚀 BST (Binary Search Tree): </h3> This class represents the hash table data structure 
-<h3 align ="left"> 🚀 Student: </h3>  This class represents the hash table data structure
+<h3 align ="left"> 🚀 Entry: </h3> 
 <p align="left">
 </p>
 
