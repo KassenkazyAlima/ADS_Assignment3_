@@ -1,7 +1,7 @@
 package org.example;
 
 public class MyHashTable <K, V> {
-    private HashNode<K, V>[] chainArray; // buckets in the hash table(array of hash node)
+    private final HashNode<K, V>[] chainArray; // buckets in the hash table(array of hash node)
     private int M = 11; // default number of chains，capacity
     private int size; // number of key-value pairs & num of hash nodes
 
@@ -31,12 +31,8 @@ public class MyHashTable <K, V> {
             return "{" + key + " " + value + "}";
         }
     }
-
     public int size(){
         return size;
-    }
-    public boolean isEmpty(){
-        return size == 0;
     }
 
     public int getBucketsCount() {
@@ -84,11 +80,9 @@ public class MyHashTable <K, V> {
     }
     public V get(K key){
         //returns the corresponding value associated with a specific key
-
         if(key == null){
             throw new IllegalArgumentException("Key is null.");
         }
-
         int index = hash(key);
         HashNode<K,V> currentNode = chainArray[index];
         while (currentNode != null){
@@ -105,9 +99,7 @@ public class MyHashTable <K, V> {
         }
         int index = hash(key);
         HashNode<K,V> currentNode = chainArray[index];
-
         HashNode<K,V> prevNode = null;
-
         while(currentNode != null){
             if(currentNode.key.equals(key)){
                 break;
@@ -116,22 +108,20 @@ public class MyHashTable <K, V> {
             currentNode = currentNode.next;
         }
         if(currentNode == null) return null;
-
         size--;
-
         if(prevNode != null){
             prevNode.next = currentNode.next;
-        }
-        else{
+        } else{
             chainArray[index] = currentNode.next;
         }
         return currentNode.value;
 
     }
     public boolean contains(V value){
-        for (HashNode<K,V> currentNode :  chainArray){
-            while(currentNode != null){
-                if(currentNode.value.equals(value)){
+        for (HashNode<K, V> HashNode : chainArray) {
+            HashNode<K, V> currentNode = HashNode;
+            while (currentNode != null) {
+                if (currentNode.value.equals(value)) {
                     return true;
                 }
                 currentNode = currentNode.next;

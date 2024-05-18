@@ -8,11 +8,11 @@ public class MyHashTableTest {
 
         Random random = new Random();
         for (int i = 0; i < 10000; i++) {
-            String groupID = "Group" + random.nextInt(100);
+            String groupID = "Group" + random.nextInt(1000);
             Group group = new Group(groupID);
 
-
-            int studentId = i;
+            int studentId;
+            studentId = i;
             String firstName = "Student" + i;
             String surname = "Surname" + (random.nextInt(100) + 10);
 
@@ -22,12 +22,27 @@ public class MyHashTableTest {
         System.out.println("Distribution of elements in the hash table:");
         printDistribution(hashTable);
 
+
+        Group testGroup = new Group("Group2312");
+        Student retrievedStudent = hashTable.get(testGroup);
+        if (retrievedStudent != null) {
+            System.out.println("Retrieved Student: " + retrievedStudent);
+        } else {
+            System.out.println("No student" + testGroup.getGroupId());
+        }
+
+        Student removedStudent = hashTable.remove(testGroup);
+        if (removedStudent != null) {
+            System.out.println("Removed Student: " + removedStudent);
+            printDistribution(hashTable); // Print distribution again to see the effect of removal
+        } else {
+            System.out.println("No student " + testGroup.getGroupId());
+        }
     }
 
     private static void printDistribution(MyHashTable<Group, Student> hashTable) {
         int numOfBuckets = hashTable.getBucketsCount();
         for (int i = 0; i < numOfBuckets; i++) {
-            int count = 0;
             int bucketSize = hashTable.getBucketSize(i);
 
             System.out.println("Bucket " + i + " has " + bucketSize + " elements.");

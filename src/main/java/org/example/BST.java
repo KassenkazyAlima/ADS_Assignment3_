@@ -16,12 +16,8 @@ public class BST<K extends Comparable<K>, V>{
             this.value=value;
         }
     }
-
-    public int size(){
+    public int size() {
         return size;
-    }
-    public boolean isEmpty(){
-        return size == 0;
     }
     public void put(K key,V value){
         root = put(root, key, value);
@@ -65,7 +61,9 @@ public class BST<K extends Comparable<K>, V>{
         root = delete(root,key);
     }
     private TreeNode delete(TreeNode root, K key) {
-        if (root == null) return null;
+        if (root == null){
+            return null;
+        }
         int cmp = key.compareTo(root.key);
         if (cmp < 0) {
             root.left = delete(root.left, key);
@@ -75,7 +73,7 @@ public class BST<K extends Comparable<K>, V>{
             if (root.left == null) return root.right;
             if (root.right == null) return root.left;
             TreeNode t = root;
-            root = getMin((t.right);
+            root = getMin(t.right);
             root.right = deleteMin(t.right);
             root.left = t.left;
         }
@@ -83,20 +81,8 @@ public class BST<K extends Comparable<K>, V>{
     }
 
     private TreeNode getMin(TreeNode root) {
-        if(isEmpty()){
-            return null;
-        }
         while (root.left != null) {
             root = root.left;
-        }
-        return root;
-    }
-    private TreeNode getMax(TreeNode root){
-        if(isEmpty()){
-            return null;
-        }
-        while (root.right != null) {
-            root = root.right;
         }
         return root;
     }

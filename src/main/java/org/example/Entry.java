@@ -1,8 +1,8 @@
 package org.example;
 
 public class Entry<K, V> {
-    private K key;
-    private V value;
+     K key;
+     V value;
 
     public Entry(K key, V value) {
         this.key = key;
@@ -16,5 +16,6 @@ public class Entry<K, V> {
     public V getValue() {
         return value;
     }
+
 }
 
