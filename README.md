@@ -1,5 +1,5 @@
 
-<h1 align="center">Hi 👋 Nursultan Khaimuldin< ! Welcome /h1>
+<h1 align="center">Hi 👋 Nursultan Khaimuldin! Welcome </h1>
 
 
 This assignment covers two main tasks: implementing a hash table and a binary search tree.
