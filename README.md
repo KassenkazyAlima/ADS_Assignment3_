@@ -6,7 +6,7 @@ This assignment covers two main tasks: implementing a hash table and a binary se
 
 
 
-This project contains the following five classes:
+This project contains the following classes:
 <h3 align ="left"> 🚀 MyHashTable: </h3> 
 
 This class is the generic class that uses chaining to resolve collisions. What is more, it also represents the hash table data structure. We have a **HashNode** class to store key-value pairs and a reference to the next node for collisions.
