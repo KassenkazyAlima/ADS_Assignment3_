@@ -43,7 +43,6 @@ Methods:
 
 <h3 align ="left"> 🚀 BST (Binary Search Tree): </h3> This class represents the hash table data structure 
 <h3 align ="left"> 🚀 Student: </h3>  This class represents the hash table data structure
-<h3 align ="left"> 🚀 TreeNode: </h3>  This class represents the hash table data structure 
 <p align="left">
 </p>
 
