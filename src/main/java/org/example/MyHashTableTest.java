@@ -1,10 +1,9 @@
-import org.example.Group;
-import org.example.MyHashTable;
-import org.example.Student;
+package org.example;
 import java.util.Random;
 
-public class MyTestingClass {
-    public static void main(String[] args){
+
+public class MyHashTableTest {
+    public static void main(String[] args) {
         MyHashTable<Group, Student> hashTable = new MyHashTable<>();
 
         Random random = new Random();
@@ -21,7 +20,21 @@ public class MyTestingClass {
             hashTable.put(group, student);
         }
         System.out.println("Distribution of elements in the hash table:");
-        hashTable.printDistribution();
+        printDistribution(hashTable);
 
     }
+
+    private static void printDistribution(MyHashTable<Group, Student> hashTable) {
+        int numOfBuckets = hashTable.getBucketsCount();
+        for (int i = 0; i < numOfBuckets; i++) {
+            int count = 0;
+            int bucketSize = hashTable.getBucketSize(i);
+
+            System.out.println("Bucket " + i + " has " + bucketSize + " elements.");
+        }
+    }
+
+
+
 }
+

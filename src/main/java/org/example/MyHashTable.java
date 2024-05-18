@@ -1,50 +1,75 @@
 package org.example;
 
 public class MyHashTable <K, V> {
-    private HashNode<K, V>[] chainArray; // buckets in the hash table(arr of hash node)
+    private HashNode<K, V>[] chainArray; // buckets in the hash table(array of hash node)
     private int M = 11; // default number of chains，capacity
-    private int size; // number of key-value pairs
+    private int size; // number of key-value pairs & num of hash nodes
 
-    private class HashNode<K, V>{
+    // when we create an instance of hash table
+    // It will call the parameterised constructor
+    // creates hash table with a default capacity 10
+    public MyHashTable(){
+        chainArray = new HashNode[M];
+    }
+    // we are providing how many buckets the hash table will have
+    public MyHashTable(int M){
+        this.M = M;
+        this.chainArray = new HashNode[M];
+        this.size = 0;
+    }
+    private class HashNode<K, V> {
         private K key;
         private V value;
-        private HashNode<K, V> next;
+        private HashNode<K, V> next; //reference to next hash node
 
-        public HashNode(K key, V value){
+        public HashNode(K key, V value) {
             this.key = key;
             this.value = value;
         }
 
-        public String toString(){
+        public String toString() {
             return "{" + key + " " + value + "}";
         }
-    }
-
-    public MyHashTable(){
-        chainArray = new HashNode[M];
-        size = 0;
-    }
-    public MyHashTable(int M){
-        this.M = M;
-        chainArray = new HashNode[M];
     }
 
     public int size(){
         return size;
     }
     public boolean isEmpty(){
-        if(size == 0) return true;
-        return false;
+        return size == 0;
     }
+
+    public int getBucketsCount() {
+        return chainArray.length;  // Returns the number of buckets
+    }
+    public int getBucketSize(int bucketIndex) {
+        if (bucketIndex < 0 || bucketIndex >= chainArray.length) {
+            throw new IndexOutOfBoundsException("Bucket index out of range: " + bucketIndex);
+        }
+        int count = 0;
+        HashNode<K, V> current = chainArray[bucketIndex];
+        while (current != null) {
+            count++;
+            current = current.next;
+        }
+        return count;
+    }
+
 
     private int hash(K key){
         return Math.abs(key.hashCode() % M); //calculate the hash code for the key and take the absolute value.
     } //here, we used modules to ensure the index falls with the range of arr size
+    //key % chainArray.length - is also okay
 
     public void put(K key, V value){ // inserts a key-value part into the hash table
+        if(key == null || value == null){
+            throw new IllegalArgumentException("Key or Value is null.");
+        }
+
+        //Firstly, we take the key and pass it to hash function
         int index = hash(key);
         HashNode<K,V> currentNode = chainArray[index]; //travers the linkedList to find the right position to insert the new one
-        while(currentNode!=null){
+        while(currentNode != null){
            if(currentNode.key.equals(key)){
                currentNode.value = value;
                return;
@@ -57,7 +82,13 @@ public class MyHashTable <K, V> {
        newNode.next = currentNode;
        chainArray[index] = newNode;
     }
-    public V get(K key){ //get the value by using the key
+    public V get(K key){
+        //returns the corresponding value associated with a specific key
+
+        if(key == null){
+            throw new IllegalArgumentException("Key is null.");
+        }
+
         int index = hash(key);
         HashNode<K,V> currentNode = chainArray[index];
         while (currentNode != null){
@@ -69,8 +100,12 @@ public class MyHashTable <K, V> {
         return null; //if key is not found then return null
     }
     public V remove(K key){
+        if(key == null){
+            throw new IllegalArgumentException("Key is null.");
+        }
         int index = hash(key);
         HashNode<K,V> currentNode = chainArray[index];
+
         HashNode<K,V> prevNode = null;
 
         while(currentNode != null){
@@ -84,7 +119,7 @@ public class MyHashTable <K, V> {
 
         size--;
 
-        if(prevNode!=null){
+        if(prevNode != null){
             prevNode.next = currentNode.next;
         }
         else{
@@ -103,32 +138,6 @@ public class MyHashTable <K, V> {
             }
         }
         return false;
-    }
-    public K getKey(V value){
-        for(HashNode<K,V> currentNode:chainArray){
-            while(currentNode != null){
-                if(currentNode.value.equals(value)){
-                    return currentNode.key;
-                }
-                currentNode = currentNode.next;
-            }
-        }
-        return null;
-    }
-    public void printDistribution() {
-        for (int i = 0; i < chainArray.length; i++) {
-            int count = 0;
-            HashNode<K, V> node = chainArray[i];
-            while (node != null) {
-                if (node.key instanceof Group && node.value instanceof Student) {
-                    Group group = (Group) node.key;
-                    Student student = (Student) node.value;
-                }
-                node = node.next;
-                count++;
-            }
-            System.out.println("Bucket " + i + " has " + count + " elements.");
-        }
     }
 
 }

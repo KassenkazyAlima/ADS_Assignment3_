@@ -1,14 +1,17 @@
 package org.example;
+import javax.swing.tree.TreeNode;
 import java.util.List;
 import java.util.ArrayList;
+
 public class BST<K extends Comparable<K>, V>{
-    private Node root;
+    private TreeNode root;
     private int size;
-    private class Node{
+
+    private class TreeNode{
         private K key;
         private V value;
-        private Node left, right;
-        public Node(K key, V value){
+        private TreeNode left, right;
+        public TreeNode(K key, V value){
             this.key = key;
             this.value=value;
         }
@@ -17,36 +20,42 @@ public class BST<K extends Comparable<K>, V>{
     public int size(){
         return size;
     }
-
+    public boolean isEmpty(){
+        return size == 0;
+    }
     public void put(K key,V value){
         root = put(root, key, value);
     }
 
-    private Node put(Node n, K key, V value){
-        if(n == null) return new Node(key,value);
-        int comp = key.compareTo(n.key);
-        if(comp < 0){
-            n.left = put(n.left,key,value);
-        } else if(comp > 0){
-            n.right = put(n.right,key,value);
-        }else{
-            n.value = value;
+    private TreeNode put(TreeNode root, K key, V value){
+        if(root== null){
+            root = new TreeNode(key,value);
+            return root;
         }
-        return n;
+        int comp = key.compareTo(root.key);
+        if(comp < 0){
+            root.left = put(root.left,key,value);
+        } else if(comp > 0){
+            root.right = put(root.right,key,value);
+        }else{
+            root.value = value;
+        }
+        return root;
     }
+
     public V get(K key){
         return get(root,key);
     }
 
-    private V get(Node n, K key){
-        while (n != null){
-            int comp = key.compareTo(n.key);
+    private V get(TreeNode root, K key){
+        while (root != null){
+            int comp = key.compareTo(root.key);
             if(comp < 0){
-                n = n.left;
+                root = root.left;
             } else if (comp > 0){
-                n = n.right;
+                root = root.right;
             } else {
-                return n.value;
+                return root.value;
             }
         }
         return null;
@@ -55,44 +64,72 @@ public class BST<K extends Comparable<K>, V>{
     public void delete(K key){
         root = delete(root,key);
     }
-    private Node delete(Node x, K key) {
-        if (x == null) return null;
-        int cmp = key.compareTo(x.key);
+    private TreeNode delete(TreeNode root, K key) {
+        if (root == null) return null;
+        int cmp = key.compareTo(root.key);
         if (cmp < 0) {
-            x.left = delete(x.left, key);
+            root.left = delete(root.left, key);
         } else if (cmp > 0) {
-            x.right = delete(x.right, key);
+            root.right = delete(root.right, key);
         } else {
-            if (x.left == null) return x.right;
-            if (x.right == null) return x.left;
-            Node t = x;
-            x = min(t.right);
-            x.right = deleteMin(t.right);
-            x.left = t.left;
+            if (root.left == null) return root.right;
+            if (root.right == null) return root.left;
+            TreeNode t = root;
+            root = getMin((t.right);
+            root.right = deleteMin(t.right);
+            root.left = t.left;
         }
-        return x;
-    }
-    private Node min(Node x) {
-        while (x.left != null) x = x.left;
-        return x;
+        return root;
     }
 
-    private Node deleteMin(Node x) {
-        if (x.left == null) return x.right;
-        x.left = deleteMin(x.left);
-        return x;
+    private TreeNode getMin(TreeNode root) {
+        if(isEmpty()){
+            return null;
+        }
+        while (root.left != null) {
+            root = root.left;
+        }
+        return root;
+    }
+    private TreeNode getMax(TreeNode root){
+        if(isEmpty()){
+            return null;
+        }
+        while (root.right != null) {
+            root = root.right;
+        }
+        return root;
+    }
+    private TreeNode deleteMin(TreeNode root) {
+        if (root.left == null) return root.right;
+        root.left = deleteMin(root.left);
+        return root;
     }
 
-    public Iterable<K> iterator(){
-        List<K> keys = new ArrayList<>();
-        inOrder(root, keys);
-        return keys;
+//    public Iterable<K> iterator(){
+//        List<K> keys = new ArrayList<>();
+//        inOrder(root, keys);
+//        return keys;
+//    }
+//    private void inOrder(TreeNode root, List<K> keys) {
+//        if (root == null) return;
+//        inOrder(root.left, keys);
+//        keys.add(root.key);
+//        inOrder(root.right, keys);
+//    }
+
+    public Iterable<Entry<K, V>> iterator() {
+        List<Entry<K, V>> entries = new ArrayList<>();
+        inOrder(root, entries);
+        return entries;
     }
-    private void inOrder(Node x, List<K> keys) {
-        if (x == null) return;
-        inOrder(x.left, keys);
-        keys.add(x.key);
-        inOrder(x.right, keys);
+
+    // Here is in order  method to populate the entries list
+    private void inOrder(TreeNode root, List<Entry<K, V>> entries) {
+        if (root == null) return;
+        inOrder(root.left, entries);
+        entries.add(new Entry<>(root.key, root.value));
+        inOrder(root.right, entries);
     }
 
 }
