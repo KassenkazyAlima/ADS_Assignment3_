@@ -4,22 +4,24 @@ import java.util.Random;
 
 public class MyHashTableTest {
     public static void main(String[] args) {
-        MyHashTable<Group, Student> hashTable = new MyHashTable<>();
+        MyHashTable<Group, Student> hashTable = new MyHashTable<>(11);
 
         Random random = new Random();
+
         for (int i = 0; i < 10000; i++) {
-            String groupID = "Group" + random.nextInt(1000);
+            String groupID = "Group" + random.nextInt(10000);
             Group group = new Group(groupID);
 
-            int studentId;
-            studentId = i;
-            String firstName = "Student" + i;
-            String surname = "Surname" + (random.nextInt(100) + 10);
+            int studentId = random.nextInt(10000);
+            String firstName = "Firstname" + random.nextInt(10000);
+            String surname = "Surname" + (random.nextInt(10000));
 
             Student student = new Student(studentId, firstName, surname);
             hashTable.put(group, student);
+
+            System.out.println(group + "->" + student);
+
         }
-        System.out.println("Distribution of elements in the hash table:");
         printDistribution(hashTable);
 
 
@@ -28,7 +30,7 @@ public class MyHashTableTest {
         if (retrievedStudent != null) {
             System.out.println("Retrieved Student: " + retrievedStudent);
         } else {
-            System.out.println("No student" + testGroup.getGroupId());
+            System.out.println("No student " + testGroup.getGroupId());
         }
 
         Student removedStudent = hashTable.remove(testGroup);

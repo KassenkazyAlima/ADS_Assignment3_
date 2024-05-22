@@ -10,6 +10,7 @@ public class MyHashTable <K, V> {
     // creates hash table with a default capacity 10
     public MyHashTable(){
         chainArray = new HashNode[M];
+        size=0;
     }
     // we are providing how many buckets the hash table will have
     public MyHashTable(int M){
@@ -53,9 +54,12 @@ public class MyHashTable <K, V> {
 
 
     private int hash(K key){
-        return Math.abs(key.hashCode() % M); //calculate the hash code for the key and take the absolute value.
+        return (key.hashCode() & 0x7fffffff) % M; //calculate the hash code for the key and take the absolute value.
     } //here, we used modules to ensure the index falls with the range of arr size
     //key % chainArray.length - is also okay
+    //return (key.hashCode() & 0x7fffffff) % M;
+    //Math.abs(key.hashCode() % M)
+
 
     public void put(K key, V value){ // inserts a key-value part into the hash table
         if(key == null || value == null){
