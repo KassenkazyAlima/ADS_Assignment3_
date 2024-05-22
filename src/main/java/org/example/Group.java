@@ -25,4 +25,8 @@ public class Group {
     public int hashCode() {
         return groupId != null ? groupId.hashCode() : 0;
     }
+    @Override
+    public String toString() {
+        return groupId;
+    }
 }
